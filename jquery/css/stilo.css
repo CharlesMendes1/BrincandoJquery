@@ -1,0 +1,12 @@
+.erro{
+    display: inline;
+    background-color: indianred;
+    color: white;
+}
+.visivel{
+    display: inline;
+}
+.invisivel{
+    display: none;
+
+}

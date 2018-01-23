@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Formulario validado com JQuery</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous">
+    </script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/jquery.maskedinput.js" type="text/javascript"></script>
+
+
+    <script>
+        $(document).ready(function(){
+
+
+            $(document).ready(function() {
+                $("#telefone").mask("(999) 9999-9999");
+                //$("#data").mask("99/99/9999");
+
+
+                var validator = $("#myForm").validate({
+                    //debug: true,
+                    rules: {
+                        nome: {
+                            required: true,
+                            regexNome: true
+                        },
+                        email: {
+                            required: true,
+                            email: true
+                        },
+                        telefone:{
+                            required: true,
+                            regexTelefone: true
+                        },
+                        idade:{
+                            required: true,
+                            number: true,
+                            maxlength: 3
+                        },
+                        data:{
+                            required: true,
+                            regexData: true
+                        },
+                        password:{
+                            required: true,
+                            minlength: 6,
+                            maxlength: 12
+                        },
+                        re_password:{
+                            required: true,
+                            minlength: 6,
+                            maxlength: 12,
+                            equalTo: "#senha"
+                        },
+                        sexo:{
+                            required: true,
+                            regexSexo: true
+                        },
+                    },
+                    messages: {
+                        nome: {
+                            required: "O campo nome é obrigatório"
+                        },
+                        email: {
+                            required: "O campo email é obrigatório",
+                            email: "Por favor, entre com um email valido"
+                        },
+                        telefone:{
+                            required: "O campo telefone é obrigatório"
+                        },
+                        idade:{
+                            required: "O campo idade é obrigatório",
+                            number: "O campo idade aceita apenas numeros",
+                            maxlength: "O campo idade aceita no máximo 3 caracteres"
+                        },
+                        data: {
+                            required: "O campo data é obrigatório"
+                        },
+                        password:{
+                            required: "O campo senha é obrigatório",
+                            minlength: "O campo senha aceita no minino 6 caracteres",
+                            maxlength: "O campo senha aceita no máximo 12 caracteres",
+                        },
+                        re_password:{
+                            required: "O campo senha é obrigatório",
+                            minlength: "O campo senha aceita no minino 6 caracteres",
+                            maxlength: "O campo senha aceita no maximo 12 caracteres",
+                            equalTo: "As duas senhas não estão iguais"
+                        },
+                        sexo:{
+                            required: "O campo sexo é obrigatório",
+                        }
+
+                    }
+                });
+
+                /*
+                $.validator.methods.nome = function( value, element ) {
+                    return this.optional( element ) || /[a-zA-Z\s]/.test( value );
+                }
+                */
+
+                $.validator.addMethod("regexNome", function(value, element) {
+                    return this.optional(element) || /^[a-zA-Z\s]/.test(value);
+                }, "O campo nome não aceita números");
+
+                $.validator.addMethod("regexSexo", function(value, element) {
+                    return this.optional(element) || /^(masculino)|(feminino)/.test(value);
+                }, "O campo sexo não esta sendo preenchido corretamente");
+
+                $.validator.addMethod("regexTelefone", function(value, element) {
+                    return this.optional(element) || /^\([0-9]{3}\)\s[0-9]{4}\-[0-9]{4}/.test(value);
+                }, "O campo telefone não esta sendo preenchido corretamente");
+
+                $.validator.addMethod("regexData", function(value, element) {
+                    return this.optional(element) || /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}/.test(value);
+                }, "O campo telefone não esta sendo preenchido corretamente");
+
+
+
+            });
+
+
+        });
+    </script>
+
+</head>
+<body>
+    <form id="myForm" action="#" method="POST">
+        <label for="nome">Nome :</label>
+        <input id="nome" type="text" name="nome" /></br></br>
+
+        <label for="email">Email :</label>
+        <input id="email" type="text" name="email" /></br></br>
+
+        <label for="telefone">Telefone :</label>
+        <input id="telefone" type="tel" name="telefone" /></br></br>
+
+        <label for="idade">Idade :</label>
+        <input id="idade" type="number" name="idade" /></br></br>
+
+        <label for="data">Data de nascimento :</label>
+        <input  id="data" type="date" name="data" /></br></br>
+
+        <label for="senha">Senha :</label>
+        <input  id="senha" type="password" name="password" /></br></br>
+
+        <label for="senha_confirmacao">Confirmação de senha :</label>
+        <input id="senha_confirmacao" type="password" name="re_password" /></br></br>
+
+        <label for="sexo">Sexo :</label>
+        <input id="sexo" type="radio" name="sexo" value="masculino" checked > Masculino
+        <input id="sexo" type="radio" name="sexo" value="feminino" > Feminino</br></br>
+
+        <input id="checkBox" type="checkbox" value="ok"> Aceita todos nossos termos de contrato</br></br>
+
+        <input type="submit" value="Submit">
+
+
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Formulario validado com JQuery Puro</title>
+    <link href="css/stilo.css" rel="stylesheet">
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/validation.js"></script>
+
+
+</head>
+<body>
+
+    <form id="myForm" action="#" method="POST">
+        <label for="nome">Nome :</label>
+        <input id="nome" type="text" name="nome"/>
+        <div id="erro-nome" class="erro"></div></br></br>
+
+
+        <label for="email">Email :</label>
+        <input id="email" type="mail" name="email" />
+        <div id="erro-email" class="erro"></div></br></br>
+
+
+        <label for="telefone">Telefone :</label>
+        <input id="telefone" type="tel" name="telefone" />
+        <div id="erro-telefone" class="erro"></div></br></br>
+
+        <!--
+
+        <label for="idade">Idade :</label>
+        <input id="idade" type="number" name="idade" />
+        <div id="erro-idade" class="erro"></div></br></br>
+
+
+        <label for="data">Data de nascimento :</label>
+        <input  id="data" type="date" name="data" />
+        <div id="erro-data" class="erro"></div></br></br>
+
+        <label for="senha">Senha :</label>
+        <input  id="senha" type="password" name="password" />
+        <div id="erro-senha" class="erro"></div></br></br>
+
+        <label for="senha_confirmacao">Confirmação de senha :</label>
+        <input id="senha_confirmacao" type="password" name="re_password" />
+        <div id="erro-senha_confirmacao" class="erro"></div></br></br>
+
+        <label for="sexo">Sexo :</label>
+        <input id="sexo" type="radio" name="sexo" value="masculino" checked > Masculino
+        <input id="sexo" type="radio" name="sexo" value="feminino" > Feminino
+        <div id="erro-sexo" class="erro"></div></br></br>
+
+        <input id="checkBox" type="checkbox" value="ok"> Aceita todos nossos termos de contrato</br></br>
+
+
+        -->
+        <button type="submit" >Enviar</button>
+
+    </form>
+    <br><br>
+
+    <table >
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descricao</th>
+                <th>Preco</th>
+            </tr>
+        </thead>
+        <tbody id="tabela_dados">
+
+        </tbody>
+    </table>
+
+
+</body>
+</html>
